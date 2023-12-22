@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>BBB</title>
+</head>
+
+<body>
+    <section>
+        <nav>
+            <div id="nav_links">
+                <!-- The Great Bs!! -->
+                <a class="logo" href="#">BBB</a>
+                <div id="right_nav">
+                    <a class="contact" id="call" href="tel:+2392587172">Call</a>
+                    <a class="contact" id="message" href="sms:+2392587172">Message</a>
+                </div>
+            </div>
+            <a class="elevator" id="to_top" href="#to_bottom">GOING DOWN</a>
+        </nav>
+        <main>
+            <div id="profile">
+                <img src="sources/profile/marley.jpg" alt="marleybbb85 profile picture" id>
+                <div id="profile_info">
+                    <p class="special" id="tag">
+                        <span class="gigantesco">marleybbb85</span>
+                        <br>
+                        <span class="diminuto">Marley Barcelo</span>
+                    </p>
+                </div>
+            </div>
+            <div id="about" style="margin-top: 2rem;">
+                <p>Lehigh acres&#128205; <br> Pick up, and
+                    delivery &#128663; <br>
+                    <a id="message" href="sms:+2392587172">DM</a> for more information!
+                </p>
+            </div>
+            <!-- That's for Reeaals -->
+            <section id="reals">
+                <h3>
+                    Lo que Hago..
+                </h3>
+                <div id="real_wrapper">
+                    <div class="real_bubble">
+                        <img src="sources/images/" alt="Cake Image Drawing">
+                        <p class="title">
+                            Cakes!
+                        </p>
+                    </div>
+                    <div class="real_bubble">
+                        <img src="sources/images/" alt="Cupcakes Image Drawing">
+                        <p class="title">
+                            Cupcakes!
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+            <!-- The Sweet Factory! NOT the sweet gallery.. -->
+            <div id="sweet_gallery_wrapper">
+                <h1>
+                    Gallery
+                </h1>
+                <div id="buttonContainer">
+                    <button class="gridButton" id="grid_btn_three" onclick="changeGrid('three-column')">Three
+                        Columns</button>
+                    <button class="gridButton" id="grid_btn_one" onclick="changeGrid('one-column')">One Column</button>
+                </div>
+                <section id="sweet_gallery">
+                    <!--  -->
+                    <div class="gallery_item">
+                        <img class="gallery_img" src="sources/products/cakes/" alt="">
+                        <div class="gallery_info">Hello Sweet World!</div>
+                    </div>
+                    <!--  -->
+                    <div class="gallery_item">
+                        <img class="gallery_img" src="sources/products/cakes/" alt="">
+                        <div class="gallery_info">So GOOD!</div>
+                    </div>
+                    <!--  -->
+                    <div class="gallery_item">
+                        <img class="gallery_img" src="sources/products/cakes/" alt="">
+                        <div class="gallery_info">Amazing!</div>
+                    </div>
+                    <!--  -->
+                    <div class="gallery_item">
+                        <img class="gallery_img" src="sources/products/cakes/" alt="">
+                        <div class="gallery_info">More Please!</div>
+                    </div>
+                    <!--  -->
+
+                </section>
+            </div>
+        </main>
+        <footer>
+            <a id="to_bottom" href="#nav_links">^ UP WE GOOO</a>
+            <h2 class="header">
+                Welcome to BBBs
+            </h2>
+            <div id="socials">
+                <h3>
+                    Contacts
+                </h3>
+                <div class="contact_Me">
+                    <a class="contact" id="call" href="tel:+2392587172">Call</a>
+                    <a class="contact" id="message" href="sms:+2392587172">Message</a>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <script>
+        function changeGrid(value) {
+            const gallery = document.getElementById('sweet_gallery');
+
+            if (value === 'three-column') {
+                gallery.style.gridTemplateColumns = 'repeat(3, 1fr)';
+                document.querySelectorAll('.gallery_info').forEach(info => info.style.display = 'none');
+            } else if (value === 'one-column') {
+                gallery.style.gridTemplateColumns = '1fr';
+                document.querySelectorAll('.gallery_info').forEach(info => info.style.display = 'grid');
+            }
+        }
+    </script>
+</body>
+
+</html>

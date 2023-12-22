@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
+
+
+:root {
+    --responsive-width: min(935px, 100% - 0rem);
+    --primary-grey-border: 1px solid rgb(219, 219, 219);
+    --tweet-color: rgb(0, 162, 255);
+    --super-font: 'Sevillana', cursive;
+
+    --test-border: 1px solid rgb(219, 219, 219);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+}
+
+.special {
+    font-weight: 500;
+}
+
+.gigantesco {
+    font-size: 20px;
+}
+
+.diminuto {
+    font-size: 12px;
+}
+
+.medio {
+    text-align: center;
+}
+
+.elevator {
+    color: rgba(0, 0, 0, 0.03);
+}
+
+
+/* === */
+/* Nav */
+/* === */
+nav {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    padding: 0 1rem;
+    border-bottom: var(--primary-grey-border);
+}
+
+nav #nav_links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: var(--responsive-width);
+}
+
+nav #to_top {
+    position: absolute;
+    right: 10px;
+    bottom: -1.2rem;
+}
+
+nav #right_nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-family: var(--super-font);
+    font-size: 30px;
+    color: black;
+}
+
+.contact {
+    width: fit-content;
+    margin-right: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+#call {
+    padding: 7px 20px;
+    background-color: var(--tweet-color);
+    color: white;
+}
+
+#message {
+    color: var(--tweet-color);
+}
+
+
+/* =========================== */
+/* Main */
+/* nest of the reals and (the beasts) more */
+/* =========================== */
+main {
+    width: var(--responsive-width);
+    min-height: 100vh;
+    margin: 2rem auto 0;
+    padding: 0 20px;
+}
+
+#profile {
+    display: flex;
+    align-items: start;
+}
+
+#profile img {
+    max-width: 25%;
+    margin-right: 30px;
+    border: var(--primary-grey-border);
+    border-radius: 50%;
+}
+
+
+/* ========================= */
+/* Reals section */
+/* Yes, for reals for reals. */
+/* ========================= */
+#reals {
+    width: 100%;
+    height: fit-content;
+    margin: 2rem 0;
+}
+
+#reals #real_wrapper {
+    display: flex;
+    margin-top: 10px;
+}
+
+#reals .real_bubble {
+    margin: 0 10px;
+    overflow: hidden;
+}
+
+#reals img {
+    width: 75px;
+    height: 75px;
+    padding: 2px;
+    border: var(--primary-grey-border);
+    border-radius: 50%;
+}
+
+#reals .title {
+    text-align: center;
+    cursor: default;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+/* ================= */
+/* The Sweet Gallery */
+/* ================= */
+#sweet_gallery_wrapper {
+    margin-top: 5rem;
+}
+
+#buttonContainer {
+    text-align: center;
+    padding: 10px 0 0;
+    border-top: var(--primary-grey-border);
+}
+
+.gridButton {
+    cursor: pointer;
+    margin: 0 0.5rem;
+}
+
+#sweet_gallery {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    grid-auto-rows: minmax(100px, auto);
+    margin-top: 1rem;
+}
+
+.gallery_img {
+    display: block;
+    width: max(10dvw, 100%);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    cursor: pointer;
+    border: var(--primary-grey-border);
+}
+
+.gallery_info {
+    display: none;
+    text-align: start;
+    margin-top: 0.5rem;
+}
+
+
+/* ====== */
+/* Footer */
+/* ====== */
+footer {
+    position: relative;
+    margin: 10rem 0 0;
+    padding: 1rem;
+    border-top: var(--primary-grey-border);
+}
+
+footer #to_bottom {
+    position: absolute;
+    top: -1.2rem;
+    right: 10px;
+}
+
+footer .header {
+    text-align: center;
+    font-family: var(--super-font);
+}
+
+footer .header .logo {
+    font-size: 1.5em;
+}
+
+footer #socials {
+
+    margin: 2rem 0 1rem;
+}
+
+footer .contact_Me {
+    margin-top: 1rem;
+}
+
+
+/* Media */
+@media screen and (min-width: 935px) {
+    .gridButton {
+        display: none;
+    }
+}
