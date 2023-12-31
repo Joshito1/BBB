@@ -1,64 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
-
-
-:root {
-    --responsive-width: min(935px, 100% - 0rem);
-    --primary-grey-border: 1px solid rgb(219, 219, 219);
-    --tweet-color: rgb(0, 162, 255);
-    --super-font: 'Sevillana', cursive;
-
-    --test-border: 1px solid rgb(219, 219, 219);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    text-decoration: none;
-    color: black;
-}
-
-body {
-    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-}
-
-.special {
-    font-weight: 500;
-}
-
-.gigantesco {
-    font-size: 20px;
-}
-
-.diminuto {
-    font-size: 12px;
-}
-
-.medio {
-    text-align: center;
-}
-
-.elevator {
-    color: rgba(0, 0, 0, 0.6);
-}
-
-.absolute {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-}
-
-button {
-    background-color: transparent;
-    border: none;
-}
-
-
 /* === */
 /* Nav */
 /* === */
@@ -68,7 +7,6 @@ nav {
     position: sticky;
     top: 0;
     background-color: white;
-    /* You can adjust the background color as needed */
     width: 100%;
     height: 50px;
     padding: 0 1rem;
@@ -109,13 +47,13 @@ nav #right_nav {
     border-radius: 10px;
 }
 
-#call {
+.call {
     padding: 7px 20px;
     background-color: var(--tweet-color);
     color: white;
 }
 
-#message {
+.message {
     color: var(--tweet-color);
 }
 
@@ -137,6 +75,10 @@ main {
 #profile {
     display: flex;
     align-items: start;
+}
+
+#tag {
+    font-weight: 500;
 }
 
 #profile img {
@@ -167,7 +109,7 @@ main {
     overflow: hidden;
 }
 
-#reals img {
+#reals .real_bubble_img {
     width: 75px;
     height: 75px;
     padding: 2px;
@@ -175,7 +117,7 @@ main {
     border-radius: 50%;
 }
 
-#reals .title {
+#reals .sub-head {
     text-align: center;
     cursor: default;
     -webkit-user-select: none;
@@ -191,10 +133,12 @@ main {
 }
 
 #buttonContainer {
+    display: flex;
+    justify-content: space-between;
     position: sticky;
     top: 49px;
     text-align: start;
-    padding: 10px 0;
+    padding: 10px 10px 0;
     width: 100%;
     background-color: white;
     border-top: var(--primary-grey-border);
@@ -203,26 +147,126 @@ main {
 }
 
 .gridButton {
-    width: 60px;
+    position: relative;
+    padding: 3px;
     opacity: 0.5;
-    cursor: pointer;
+}
+
+.gridButton.active {
+    height: 100%;
+    border-bottom: var(--secondary-grey-border);
+    border-radius: 3px 3px 0 0;
+    opacity: 1;
+    background-color: var(--primary-grey-color);
 }
 
 .gridButton svg {
     width: 1.5rem;
 }
 
-#sweet_gallery {
+#cupcake-svg {
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+    padding: 1px;
+    width: 13px;
+    background-color: var(--primary-grey-color);
+    border-radius: 10px 10px 5px 5px;
+}
+
+/* ========= */
+/* Info Tabs */
+/* ========= */
+#moreInfo_wrapper {
+    height: 100%;
+}
+
+#moreInfo {
+    display: flex;
+}
+
+#more-Info-tabs {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px 0 0 10px;
+    border-right: var(--secondary-grey-border);
+}
+
+.tab_collection {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab_titles {
+    text-align: center;
+    margin-top: 10px;
+    padding: 15px 0 5px;
+}
+
+.tab_links {
+    padding: 15px;
+    font-size: 15px;
+    border-bottom: 1px solid lightgray;
+}
+
+.tab_links.active {
+    background-color: var(--primary-grey-color);
+}
+
+#articles_wrapper {
+    margin: 0 0 30px;
+    width: 70%;
+}
+
+#starting_price {
+    margin: 10px;
+}
+
+.article_collection {
+    margin: 2rem 20px 0;
+    padding: 1rem;
+    border: var(--primary-grey-border);
+    border-radius: 5px;
+}
+
+.article_collection article {
+    margin-top: 1.3rem;
+    padding: 5px;
+    border-bottom: var(--primary-grey-border);
+}
+
+.highlight {
+    background-color: yellow;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ============= */
+/* Image Gallery */
+/* ============= */
+#gallery {
     display: grid;
+}
+
+.grid-three {
     justify-content: center;
     grid-template-columns: repeat(3, 1fr);
     gap: 3px;
     grid-auto-rows: minmax(100px, auto);
 }
 
-.single-column {
+.grid-one {
     width: 100%;
     max-width: 100vw;
+}
+
+.grid-one .gallery_item {
+    display: block;
+    margin: auto;
+    padding: 2rem 0;
 }
 
 .gallery_img {
@@ -234,10 +278,11 @@ main {
     cursor: pointer;
 }
 
-.gallery_info {
-    display: none;
-    text-align: start;
-    margin-top: 0.5rem;
+.gallery_more_btn {
+    margin-top: 2rem;
+    width: 100%;
+    height: 20px;
+    font-size: 16px;
 }
 
 
@@ -274,6 +319,14 @@ footer .contact_Me {
     margin-top: 1rem;
 }
 
+footer img {
+    display: block;
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    width: 60px;
+    height: auto;
+}
 
 /* Media */
 @media screen and (min-width: 935px) {
@@ -283,5 +336,18 @@ footer .contact_Me {
 
     #grid_btn_one {
         display: none;
+    }
+
+    .article_collection_wrapper {
+        display: flex;
+        align-items: baseline;
+    }
+
+    .article_collection {
+        width: 100%;
+    }
+
+    .grid-one .gallery_item {
+        width: 90%;
     }
 }
