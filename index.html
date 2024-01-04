@@ -6,32 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/universal.css">
     <link rel="stylesheet" href="css/index.css">
-    <title>BBB</title>
+    <link rel="icon" type="image/x-icon" href="sources/images/favicon.ico">
+    <title>Cucusa Sweets | Marley Barcelo</title>
 </head>
 
 <body id="to_body">
-    <p class="special absolute"
+    <!-- <p class="special absolute"
         style="color: rgba(255, 0, 0, 0.1); font-size: 30px; -webkit-user-select: none; user-select: none; cursor: default;">
         IN DEVELOPMENT
-    </p>
+    </p> -->
     <section>
         <!-- <div class="details_banner_wrapper">
             <div class="details_banner">
                 <p>
-                    - Order before a 10 day. period of Work hours - Most recent updated Work hours as of: <span
-                        class="date" id="details_banner_date"></span> - All Week - <br> <strong>!Please dont take this
-                        message into consideration as it is a place holder and will/could under go changes in
-                        DEVELOPMENT!</strong>
+                    - Most recent updated Work hours as of: <span class="date" id="details_banner_date"></span> - All
+                    Week -
                 </p>
             </div>
         </div> -->
         <nav>
             <div id="nav_links">
-                <!-- The Great Bs!! -->
-                <a class="logo" href="#">BBB</a>
+                <!-- The Great Sweets!! -->
+                <a class="logo" href="#">Cucusa Sweets</a>
                 <div id="right_nav">
-                    <a class="contact call" href="tel:+12392587172">Call</a>
-                    <a class="contact message" href="sms:+12392587172">Message</a>
+                    <a class="contact callbtn" href="tel:+12392587172">Call</a>
+                    <a class="contact messagebtn" href="sms:+12392587172">Message</a>
                 </div>
             </div>
             <a class="elevator" id="to_top" href="#to_bottom">GOING DOWN</a>
@@ -51,7 +50,7 @@
                 <div id="about" style="margin-top: 2rem;">
                     <p>Lehigh acres&#128205; <br> Pick up, and
                         delivery &#128663; <br>
-                        <a id="message" href="sms:+2392587172">DM</a> for more information!
+                        <a class="message" href="sms:+12392587172">DM</a> for more information!
                     </p>
                 </div>
                 <!-- That's for Reeaals -->
@@ -175,16 +174,16 @@
                                                 </h3>
                                                 <ul>
                                                     <li>
-                                                        Mega = 40 - 55 Personas
+                                                        Mega = 25 y mas Personas
                                                     </li>
                                                     <li>
-                                                        Large = 15 - 20 Personas
+                                                        Large = 15 - 25 Personas
                                                     </li>
                                                     <li>
-                                                        Medium = 10 - 12 Personas
+                                                        Medium = 10 - 15 Personas
                                                     </li>
                                                     <li>
-                                                        Mini = 6 - 8 Personas
+                                                        Mini = 8 - 10 Personas
                                                     </li>
                                                 </ul>
                                             </article>
@@ -210,7 +209,7 @@
                                                         Coco
                                                     </li>
                                                     <li>
-                                                        Nutella
+                                                        Chocolate
                                                     </li>
                                                     <li>
                                                         guayaba / Guava
@@ -278,56 +277,37 @@
                     </div>
                     <!-- The sweet gallery -->
                     <div id="gallery_wrapper">
+                        <p style="text-align: center;">- Sorry, no images at this moment. Images Soon To be Added. -</p>
                         <section id="gallery" class="grid-three">
-                            <!--  -->
-                            <div class="gallery_item">
-                                <img class="gallery_img" src="sources/images/cake.png" alt="">
-                            </div>
-                            <!--  -->
-                            <div class="gallery_item">
-                                <img class="gallery_img" src="sources/images/cupcake.png" alt="">
-                            </div>
-                            <!--  -->
-                            <div class="gallery_item">
-                                <img class="gallery_img" src="sources/products/" alt="">
-                            </div>
-                            <!--  -->
-                            <div class="gallery_item">
-                                <img class="gallery_img" src="sources/products/" alt="">
-                            </div>
-                            <!--  -->
-                            <div class="gallery_item">
-                                <img class="gallery_img" src="sources/products/" alt="">
-                            </div>
-                            <!--  -->
-                            <div class="gallery_item">
-                                <img class="gallery_img" src="sources/products/" alt="">
-                            </div>
-                            <!--  -->
-                            <div class="gallery_item">
-                                <img class="gallery_img" src="sources/products/" alt="">
-                            </div>
-                            <!--  -->
-                            <div class="gallery_item">
-                                <img class="gallery_img" src="sources/products/" alt="">
-                            </div>
-                            <!--  -->
-                            <div class="gallery_item">
-                                <img class="gallery_img" src="sources/products/" alt="">
-                            </div>
                             <!--  -->
                             <div class="gallery_item">
                                 <img class="gallery_img" src="sources/products/" alt="">
                             </div>
                         </section>
-                        <!-- Add JS -->
                         <button class="gallery_more_btn" id="show-more-images-btn">
                             Load more
                         </button>
-                        <div id="imageModal" class="modal">
-                            <span class="close">&times;</span>
-                            <img class="modal-content" id="enlargedImg">
-                            <div id="caption"></div>
+                        <div class="modalBg" id="modal-Bg">
+                            <div class="close">&times;</div>
+                            <div id="imageModal" class="modal">
+                                <img class="modal-content" id="modalImg">
+                            </div>
+                            <div class="modalNavContainer">
+                                <button id="prev" class="arrow-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 19l-7-7 7-7"></path>
+                                    </svg>
+                                </button>
+                                <button id="next" class="arrow-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -335,16 +315,16 @@
         </main>
         <footer>
             <a class="elevator" id="to_bottom" href="#to_body">^ BACK UP WE GOOO</a>
-            <h2 class="header">
-                Welcome to BBBs
-            </h2>
+            <p class="header">
+                Welcome to Cucusa Sweets
+            </p>
             <div id="socials">
                 <h3>
                     Contacts
                 </h3>
                 <div class="contact_Me">
-                    <a class="contact call" href="tel:+12392587172">Call</a>
-                    <a class="contact message" href="sms:+12392587172">Message</a>
+                    <a class="contact callbtn" href="tel:+12392587172">Call</a>
+                    <a class="contact messagebtn" href="sms:+12392587172">Message</a>
                 </div>
             </div>
             <img src="sources/images/qr-code.png" alt="QR code for BBB">

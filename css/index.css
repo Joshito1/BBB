@@ -8,16 +8,16 @@ nav {
     top: 0;
     background-color: white;
     width: 100%;
-    height: 50px;
     padding: 0 1rem;
     border-bottom: var(--primary-grey-border);
-    z-index: 5;
+    z-index: 2;
 }
 
 nav #nav_links {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     width: var(--responsive-width);
 }
 
@@ -47,13 +47,13 @@ nav #right_nav {
     border-radius: 10px;
 }
 
-.call {
+.callbtn {
     padding: 7px 20px;
     background-color: var(--tweet-color);
     color: white;
 }
 
-.message {
+.messagebtn {
     color: var(--tweet-color);
 }
 
@@ -136,14 +136,14 @@ main {
     display: flex;
     justify-content: space-between;
     position: sticky;
-    top: 49px;
+    top: 41px;
     text-align: start;
     padding: 10px 10px 0;
     width: 100%;
     background-color: white;
     border-top: var(--primary-grey-border);
     border-bottom: var(--primary-grey-border);
-    z-index: 5;
+    z-index: 1;
 }
 
 .gridButton {
@@ -304,11 +304,8 @@ footer #to_bottom {
 
 footer .header {
     text-align: center;
+    font-size: 30px;
     font-family: var(--super-font);
-}
-
-footer .header .logo {
-    font-size: 1.5em;
 }
 
 footer #socials {

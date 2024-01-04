@@ -73,24 +73,73 @@ $(document).ready(function () {
 // Modal
 $(document).ready(function () {
     // Image modal
+    var modalbg = document.getElementById('modal-Bg');
     var modal = document.getElementById('imageModal');
-    var modalImg = document.getElementById('enlargedImg');
+    var modalImg = document.getElementById('modalImg');
+    var galleryItems = $('.gallery_item');
+    var currentIndex = 0;
 
     // Open modal when clicking on a gallery image
     $('.gallery_img').click(function () {
-        modal.style.display = 'block';
-        modalImg.src = $(this).attr('src');
+        modalbg.style.display = 'flex';
+        modal.style.display = 'flex';
+        currentIndex = $(this).index();
+        updateModalImage();
     });
 
     // Close modal when clicking on the close button
     $('.close').click(function () {
+        modalbg.style.display = 'none';
         modal.style.display = 'none';
     });
 
     // Close modal when clicking outside the modal
     window.onclick = function (event) {
-        if (event.target === modal) {
-            modal.style.display = 'none';
+        if (event.target === modalbg) {
+            modalbg.style.display = 'none';
         }
     };
+
+    // Next and Previous buttons
+    $('#next').click(function () {
+        currentIndex = (currentIndex + 1) % galleryItems.length;
+        updateModalImage();
+    });
+
+    $('#prev').click(function () {
+        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+        updateModalImage();
+    });
+
+    // Function to update the modal image
+    function updateModalImage() {
+        modalImg.src = galleryItems.eq(currentIndex).find('.gallery_img').attr('src');
+    }
+});
+
+
+// More images button
+$(document).ready(function () {
+    // Show more images in the gallery
+    var numVisibleImages = 6; // Set the initial number of visible images
+    var $galleryItems = $('.gallery_item');
+
+    // Hide images beyond the initial visible set
+    $galleryItems.slice(numVisibleImages).hide();
+
+    // Show more images when the "Show more" button is clicked
+    $('#show-more-images-btn').click(function () {
+        numVisibleImages += 3; // Increase the number of visible images
+        $galleryItems.slice(0, numVisibleImages).show();
+
+        // Hide the "Show more" button if all images are visible
+        if (numVisibleImages >= $galleryItems.length) {
+            $(this).hide();
+        }
+    });
+
+    // Hide the "Show more" button initially if there are no more images to show
+    if ($galleryItems.length <= numVisibleImages) {
+        $('#show-more-images-btn').hide();
+    }
 });
