@@ -3,11 +3,14 @@
 
 :root {
     --responsive-width: min(935px, 100% - 0rem);
+    /* color */
     --primary-grey-color: #f6f6f6;
     --secondary-grey-color: rgb(30, 30, 30);
+    /* border */
     --primary-grey-border: 1px solid rgb(219, 219, 219);
     --secondary-grey-border: 2px solid rgb(110, 110, 110);
     --third-grey-border: 2px solid rgb(200, 200, 200);
+
     --tweet-color: rgb(0, 162, 255);
     --super-font: 'Sevillana', cursive;
 

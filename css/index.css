@@ -134,12 +134,13 @@ main {
 
 #buttonContainer {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     position: sticky;
     top: 41px;
     text-align: start;
-    padding: 10px 10px 0;
+    padding: 0 10px 0;
     width: 100%;
+    height: 50px;
     background-color: white;
     border-top: var(--primary-grey-border);
     border-bottom: var(--primary-grey-border);
@@ -147,9 +148,11 @@ main {
 }
 
 .gridButton {
+    display: flex;
+    align-items: center;
     position: relative;
     padding: 3px;
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .gridButton.active {
@@ -157,21 +160,26 @@ main {
     border-bottom: var(--secondary-grey-border);
     border-radius: 3px 3px 0 0;
     opacity: 1;
-    background-color: var(--primary-grey-color);
 }
 
 .gridButton svg {
-    width: 1.5rem;
+    width: 15px;
 }
 
 #cupcake-svg {
     position: absolute;
-    right: 0;
-    bottom: 5px;
+    left: -3px;
+    bottom: 13px;
     padding: 1px;
-    width: 13px;
-    background-color: var(--primary-grey-color);
+    width: 9px;
+    background-color: white;
     border-radius: 10px 10px 5px 5px;
+}
+
+.gridButtonTag {
+    margin-left: 5px;
+    font-size: 13px;
+    font-weight: 600;
 }
 
 /* ========= */
@@ -233,11 +241,6 @@ main {
     margin-top: 1.3rem;
     padding: 5px;
     border-bottom: var(--primary-grey-border);
-}
-
-.highlight {
-    background-color: yellow;
-    border-radius: 5px;
 }
 
 .hidden {
@@ -329,6 +332,20 @@ footer img {
 @media screen and (min-width: 935px) {
     #profile img {
         max-width: 130px;
+    }
+
+    .gridButton svg {
+        width: 18px;
+    }
+
+    #cupcake-svg {
+        left: -6px;
+        bottom: 11px;
+        width: 12px;
+    }
+
+    .gridButtonTag {
+        font-size: 15px;
     }
 
     #grid_btn_one {
