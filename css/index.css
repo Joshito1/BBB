@@ -1,62 +1,69 @@
 /* === */
 /* Nav */
 /* === */
-nav {
+header.top_header {
     display: flex;
     justify-content: center;
     position: sticky;
     top: 0;
-    background-color: white;
-    width: 100%;
-    padding: 0 1rem;
     border-bottom: var(--primary-grey-border);
+    background-color: white;
     z-index: 2;
 }
 
-nav #nav_links {
+#header_main_content {
+    display: flex;
+    justify-content: space-between;
+    width: var(--responsive-width);
+    padding: 0 1rem;
+}
+
+.logo {
+    font-family: var(--special-font);
+    font-size: 30px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact_btns {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    width: var(--responsive-width);
-}
-
-nav #to_top {
-    position: absolute;
-    right: 10px;
-    bottom: -1.2rem;
-    color: rgba(0, 0, 0, 0.03);
-}
-
-nav #right_nav {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.logo {
-    font-family: var(--super-font);
-    font-size: 30px;
-    color: black;
+    width: 160px;
 }
 
 .contact {
-    width: fit-content;
-    margin-right: 20px;
+    font-size: 15px;
     font-weight: 600;
     border-radius: 10px;
 }
 
-.callbtn {
+.contact.callbtn {
     padding: 7px 20px;
     background-color: var(--tweet-color);
     color: white;
 }
 
-.messagebtn {
+.contact.messagebtn,
+.about.messagebtn {
     color: var(--tweet-color);
 }
 
+.about.messagebtn:hover {
+    text-decoration: underline;
+}
+
+#to_top {
+    position: absolute;
+    inset: 3rem 1rem auto auto;
+    color: rgba(0, 0, 0, 0.04);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.04);
+}
 
 /* =========================== */
 /* Main */
@@ -68,17 +75,17 @@ main {
     margin: 2rem auto 0;
 }
 
-.walls_main {
-    margin: 0 20px;
-}
-
 #profile {
     display: flex;
     align-items: start;
 }
 
-#tag {
-    font-weight: 500;
+#profile_username p span:first-child {
+    font-size: 20px;
+}
+
+#profile_username p span:last-child {
+    font-size: 12px;
 }
 
 #profile img {
@@ -102,22 +109,41 @@ main {
 #reals #real_wrapper {
     display: flex;
     margin-top: 10px;
+    overflow-x: auto;
 }
 
 #reals .real_bubble {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin: 0 10px;
-    overflow: hidden;
 }
 
-#reals .real_bubble_img {
-    width: 75px;
-    height: 75px;
+#reals .real_bubble_img_wrapper {
+    display: flex;
+    justify-content: center;
+    align-self: center;
     padding: 2px;
     border: var(--primary-grey-border);
     border-radius: 50%;
 }
 
+#reals .real_bubble_img {
+    width: 65px;
+    height: 65px;
+    border-radius: inherit;
+}
+
+#reals .real_bubble:nth-child(3) .real_bubble_img {
+    background-color: rgb(229, 255, 167);
+}
+
+#reals .real_bubble:nth-child(4) .real_bubble_img {
+    background-color: rgb(233, 247, 255);
+}
+
 #reals .sub-head {
+    word-break: keep-all;
     text-align: center;
     cursor: default;
     -webkit-user-select: none;
@@ -128,6 +154,19 @@ main {
 /* ================= */
 /* The Sweet Gallery */
 /* ================= */
+#imageCounter {
+    position: absolute;
+    bottom: -3rem;
+    left: 0;
+    margin: 0 1rem;
+    padding: 7px;
+    font-size: 13px;
+    box-shadow: 0 0 5px rgb(0, 0, 0, 0.5);
+    border: var(--primary-grey-border);
+    border-radius: 30px;
+    background-color: white;
+}
+
 #sweet_gallery_wrapper {
     margin-top: 5rem;
 }
@@ -152,11 +191,11 @@ main {
     align-items: center;
     position: relative;
     padding: 3px;
+    height: 100%;
     opacity: 0.6;
 }
 
 .gridButton.active {
-    height: 100%;
     border-bottom: var(--secondary-grey-border);
     border-radius: 3px 3px 0 0;
     opacity: 1;
@@ -182,13 +221,51 @@ main {
     font-weight: 600;
 }
 
+/* ============= */
+/* Image Gallery */
+/* ============= */
+#gallery {
+    display: grid;
+}
+
+.grid-three {
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.grid-one {
+    width: 100%;
+    max-width: 100vw;
+}
+
+.grid-one .gallery_item {
+    padding: 4rem 0;
+}
+
+.grid-one .gallery_img {
+    height: 100%;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
+}
+
+.gallery_img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.gallery_more_btn {
+    margin-top: 2rem;
+    width: 100%;
+    font-size: 16px;
+}
+
 /* ========= */
 /* Info Tabs */
 /* ========= */
-#moreInfo_wrapper {
-    height: 100%;
-}
-
 #moreInfo {
     display: flex;
 }
@@ -227,7 +304,7 @@ main {
 }
 
 #starting_price {
-    margin: 10px;
+    padding: 10px;
 }
 
 .article_collection {
@@ -247,52 +324,147 @@ main {
     display: none;
 }
 
-/* ============= */
-/* Image Gallery */
-/* ============= */
-#gallery {
-    display: grid;
-}
-
-.grid-three {
+/* ===== */
+/* Modal */
+/* ===== */
+.modalBg {
+    display: none;
     justify-content: center;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3px;
-    grid-auto-rows: minmax(100px, auto);
-}
-
-.grid-one {
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
     width: 100%;
-    max-width: 100vw;
+    height: 100%;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
-.grid-one .gallery_item {
-    display: block;
-    margin: auto;
-    padding: 2rem 0;
+.modal {
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 85%;
+    height: 85%;
+    z-index: 4;
+    background-color: white;
+    border-radius: 3px;
 }
 
-.gallery_img {
-    display: block;
-    width: 100%;
+#modal-content-container.fullscreen-mode {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 11;
+}
+
+#modal-content-container.fullscreen-mode img {
+    max-width: 100%;
     height: auto;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
+    max-height: 100vh;
+}
+
+.close-message {
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.modal-button-container {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px 10px 0 0;
+}
+
+#modalImg {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: inherit;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    z-index: 4;
+    color: #ffffff;
+}
+
+.close:hover,
+.close:focus {
+    color: #999;
+}
+
+/* Next & previous buttons */
+.modalNavContainer {
+    position: absolute;
+    width: 98%;
+    z-index: 4;
+}
+
+.arrow-button {
+    display: flex;
     cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 6px;
+    margin-top: -50px;
+    font-size: 20px;
+    border-radius: 50%;
+    text-decoration: none;
+    background-color: var(--primary-grey-color);
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-transition: 0.6s ease;
+    transition: 0.4s ease;
 }
 
-.gallery_more_btn {
-    margin-top: 2rem;
-    width: 100%;
-    height: 20px;
-    font-size: 16px;
+.arrow-button svg {
+    width: 1.5rem;
 }
 
+#nextbtnContainer {
+    position: absolute;
+    right: 0;
+}
+
+/* Position the "next button" to the right */
+#next {
+    right: 0;
+}
+
+.load-more-message {
+    font-size: 17px;
+    color: white;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.arrow-button:hover {
+    background-color: rgb(171, 171, 171);
+}
 
 /* ====== */
 /* Footer */
 /* ====== */
 footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     position: relative;
     margin: 15rem 0 0;
     padding: 1rem;
@@ -305,33 +477,93 @@ footer #to_bottom {
     right: 10px;
 }
 
-footer .header {
-    text-align: center;
+footer header {
     font-size: 30px;
-    font-family: var(--super-font);
+    font-family: var(--special-font);
 }
 
-footer #socials {
-    margin: 2rem 0 1rem;
+.footer_content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    width: 100%;
 }
 
-footer .contact_Me {
-    margin-top: 1rem;
+.footer_legal {
+    align-self: end;
+    text-align: end;
+    margin-top: 3rem;
+    font-size: 12px;
+    font-weight: 600;
 }
 
-footer img {
-    display: block;
-    position: absolute;
-    right: 2rem;
-    bottom: 2rem;
-    width: 60px;
-    height: auto;
+/* notify Popup */
+.notifyBg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.notify-Popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    width: var(--secondary-responsive-width);
+    height: fit-content;
+    padding: 2rem 2rem 10px;
+    border: var(--third-grey-border);
+    border-radius: 5px;
+    background-color: white;
+}
+
+.notify-Popup p::first-line {
+    font-weight: 600;
+    font-size: 35px;
+    color: rgb(70, 70, 70);
+}
+
+.notify-Popup p:nth-child(1) {
+    font-weight: 500;
+    font-size: 25px;
+    color: rgb(38, 38, 38);
+}
+
+.notify-Popup div:nth-child(2) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    margin-top: 4rem;
+}
+
+.notify-Popup button {
+    font-weight: 600;
+    width: fit-content;
+    padding: 10px 2rem;
+    border-radius: 10px;
+    color: white;
+    background-color: var(--tweet-color);
 }
 
 /* Media */
 @media screen and (min-width: 935px) {
     #profile img {
         max-width: 130px;
+    }
+
+    #reals .real_bubble_img {
+        width: 70px;
+        height: 70px;
     }
 
     .gridButton svg {
@@ -361,7 +593,7 @@ footer img {
         width: 100%;
     }
 
-    .grid-one .gallery_item {
-        width: 90%;
+    .modal {
+        width: 89%;
     }
 }

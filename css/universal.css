@@ -3,6 +3,7 @@
 
 :root {
     --responsive-width: min(935px, 100% - 0rem);
+    --secondary-responsive-width: min(1005px, 100% - 4rem);
     /* color */
     --primary-grey-color: #f6f6f6;
     --secondary-grey-color: rgb(30, 30, 30);
@@ -11,8 +12,9 @@
     --secondary-grey-border: 2px solid rgb(110, 110, 110);
     --third-grey-border: 2px solid rgb(200, 200, 200);
 
+    --alpha: 0.5;
     --tweet-color: rgb(0, 162, 255);
-    --super-font: 'Sevillana', cursive;
+    --special-font: 'Sevillana', cursive;
 
     --test-border: 1px solid rgb(219, 219, 219);
 }
@@ -30,44 +32,8 @@ body {
     font-size: 14px;
 }
 
-.special {
-    font-weight: 500;
-}
-
-.gigantesco {
-    font-size: 20px;
-}
-
-.diminuto {
-    font-size: 12px;
-}
-
-.elevator {
-    color: rgba(0, 0, 0, 0.6);
-}
-
-.absolute {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-}
-
-.details_banner_wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(255, 160, 160);
-    width: 100%;
-    height: auto;
-    padding: 1rem;
-}
-
-.details_banner {
-    text-align: center;
-    width: var(--responsive-width);
+svg {
+    width: 30px;
 }
 
 button {
@@ -90,105 +56,50 @@ li {
     margin-block-start: 1em;
 }
 
-.modalBg {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
-    background-color: rgba(0, 0, 0, 0.7);
+/* ====== */
+/* Custom */
+/* ====== */
+.fat {
+    font-weight: 500;
 }
 
-.modal {
-    justify-content: center;
-    align-items: center;
-    width: 85%;
-    height: 85%;
-    z-index: 4;
-    background-color: white;
-    border-radius: 3px;
-}
-
-#modalImg {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: inherit;
-}
-
-.close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 30px;
-    cursor: pointer;
-    z-index: 4;
-    color: #ffffff;
-}
-
-.close:hover,
-.close:focus {
-    color: #999;
-}
-
-#modalTopNav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    margin-top: 1rem;
-    padding: 10px;
-    width: 99%;
-    z-index: 4;
-}
-
-/* Next & previous buttons */
-.modalNavContainer {
-    position: absolute;
-    width: 98%;
-    z-index: 4;
-}
-
-.arrow-button {
-    display: flex;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 6px;
-    margin-top: -50px;
+.gigantesco {
     font-size: 20px;
-    border-radius: 50%;
-    text-decoration: none;
-    background-color: var(--primary-grey-color);
-    -webkit-user-select: none;
-    user-select: none;
-    -webkit-transition: 0.6s ease;
-    transition: 0.4s ease;
 }
 
-.arrow-button svg {
-    width: 1.5rem;
+.diminuto {
+    font-size: 12px;
 }
 
-/* Position the "next button" to the right */
-#next {
-    right: 0;
+.elevator {
+    padding: 5px;
+    font-size: 10px;
+    color: rgba(0, 0, 0, var(--alpha));
+    background-color: rgba(255, 255, 255);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, var(--alpha));
+    border-radius: 30px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
-.arrow-button:hover {
-    background-color: rgb(171, 171, 171);
+.absolute_fixed {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
 }
 
-/* Media */
-@media screen and (min-width: 935px) {
-    .modal {
-        width: 89%;
-        height: auto;
-    }
+.details_banner_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 160, 160);
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+}
+
+.details_banner {
+    text-align: center;
+    width: var(--responsive-width);
 }
