@@ -4,6 +4,7 @@ $(document).ready(function () {
     var imagesPerPage = 15; // Set the number of images to load per page
     var currentPage = 1; // Initial page
     var popupTriggered = false;
+    var allImageFiles = []; // Initialize the array to store image files
 
     // Function to load images from all folders
     function loadImages(page) {
@@ -11,30 +12,41 @@ $(document).ready(function () {
         var imageCounter = $('#imageCounter');
         var loadMoreButton = $('#show-more-images-btn');
 
-        // Combine image files from all folders
-        var allImageFiles = [];
-        for (var i = 0; i < folders.length; i++) {
-            $.ajax({
-                url: 'sources/products/' + folders[i] + '/',
-                async: true, // Ensure synchronous behavior to maintain order of image loading
-                success: function (data) {
-                    // Use regex to find all image files in the response
-                    var imageFiles = data.match(/href="(.*?\.(jpg|jpeg|png|gif|bmp|heic))"/gi);
+        // Iterate through each folder
+        folders.forEach(function (folder) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'sources/products/' + folder + '/', true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) { // When request is complete
+                    if (xhr.status === 200) { // If request is successful
+                        var data = xhr.responseText;
+                        var imageFiles = data.match(/href="(.*?\.(jpg|jpeg|png|gif|bmp|heic))"/gi);
 
-                    if (imageFiles) {
-                        // Check for non-Apple devices and remove HEIC images
-                        if (!isAppleBrowser()) {
-                            imageFiles = imageFiles.filter(function (file) {
-                                return !file.toLowerCase().includes('.heic');
-                            });
+                        if (imageFiles) {
+                            // Check for non-Apple devices and remove HEIC images
+                            if (!isAppleBrowser()) {
+                                imageFiles = imageFiles.filter(function (file) {
+                                    return !file.toLowerCase().includes('.heic');
+                                });
+                            }
+
+                            allImageFiles.push.apply(allImageFiles, imageFiles);
                         }
 
-                        allImageFiles.push.apply(allImageFiles, imageFiles);
+                        // Proceed with processing the received data
+                        // Update the DOM here if needed
+                        updateGallery(gallery, imageCounter, loadMoreButton, page);
+                    } else {
+                        console.log('ERROR Dynamic Images Javascript ISSUE');
                     }
                 }
-            });
-        }
+            };
+            xhr.send();
+        });
+    }
 
+    // Function to update the gallery with loaded images
+    function updateGallery(gallery, imageCounter, loadMoreButton, page) {
         // Calculate start and end indexes based on the current page
         var startIndex = (page - 1) * imagesPerPage;
         var endIndex = startIndex + imagesPerPage;
@@ -68,6 +80,25 @@ $(document).ready(function () {
             showCustomPopup(getBrowser());
         }
     }
+
+    // Load images on page load
+    loadImages(currentPage);
+
+    // Load more button functionality
+    $('#show-more-images-btn').on('click', function () {
+        currentPage++;
+
+        // Load more images when the "Load more" button is clicked
+        loadImages(currentPage);
+    });
+
+    // Scroll event listener to check if the popup should be triggered
+    $(window).on('scroll', function () {
+        if (!popupTriggered && !isAppleBrowser() && shouldTriggerPopup()) {
+            popupTriggered = true;
+            showCustomPopup(getBrowser());
+        }
+    });
 
     // Check if the current browser is Safari
     function isAppleBrowser() {
@@ -139,23 +170,4 @@ $(document).ready(function () {
             $('#notify-Popup').remove();
         });
     }
-
-    // Load images on page load
-    loadImages(currentPage);
-
-    // Load more button functionality
-    $('#show-more-images-btn').on('click', function () {
-        currentPage++;
-
-        // Load more images when the "Load more" button is clicked
-        loadImages(currentPage);
-    });
-
-    // Scroll event listener to check if the popup should be triggered
-    $(window).on('scroll', function () {
-        if (!popupTriggered && !isAppleBrowser() && shouldTriggerPopup()) {
-            popupTriggered = true;
-            showCustomPopup(getBrowser());
-        }
-    });
 });
