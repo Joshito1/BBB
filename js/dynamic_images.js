@@ -16,7 +16,7 @@ $(document).ready(function () {
         for (var i = 0; i < folders.length; i++) {
             $.ajax({
                 url: 'sources/products/' + folders[i] + '/',
-                async: false, // Ensure synchronous behavior to maintain order of image loading
+                async: true, // Ensure synchronous behavior to maintain order of image loading
                 success: function (data) {
                     // Use regex to find all image files in the response
                     var imageFiles = data.match(/href="(.*?\.(jpg|jpeg|png|gif|bmp|heic))"/gi);
