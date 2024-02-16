@@ -15,7 +15,7 @@ $(document).ready(function () {
         // Iterate through each folder
         folders.forEach(function (folder) {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', '../sources/products/' + folder + '/', true);
+            xhr.open('GET', 'https://joshito1.github.io/BBB/sources/products/' + folder + '/', true);
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) { // When request is complete
                     if (xhr.status === 200) { // If request is successful
