@@ -15,7 +15,7 @@ $(document).ready(function () {
         // Iterate through each folder
         folders.forEach(function (folder) {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'sources/products/' + folder + '/', true);
+            xhr.open('GET', '../sources/products/' + folder + '/', true);
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) { // When request is complete
                     if (xhr.status === 200) { // If request is successful
@@ -36,6 +36,7 @@ $(document).ready(function () {
                         // Proceed with processing the received data
                         // Update the DOM here if needed
                         updateGallery(gallery, imageCounter, loadMoreButton, page);
+                        console.log('!Dynamically a Success!')
                     } else {
                         console.log('ERROR Dynamic Images Javascript ISSUE');
                     }
